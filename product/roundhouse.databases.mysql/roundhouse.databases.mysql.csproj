@@ -95,9 +95,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\SolutionVersion.cs">
-      <Link>Properties\SolutionVersion.cs</Link>
-    </Compile>
     <Compile Include="MySqlAdoNetProviderResolver.cs" />
     <Compile Include="MySqlDatabase.cs" />
     <Compile Include="orm\ScriptsRunErrorMapping.cs" />
