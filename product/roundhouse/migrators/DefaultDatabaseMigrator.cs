@@ -205,8 +205,11 @@ namespace roundhouse.migrators
                         foreach (var sql_statement in get_statements_to_run(sql_to_run))
                         {
                             try
-                            {
-                                database.run_sql(sql_statement, connection_type);
+                            {                                
+                                if (script_name.Contains(".HASTRANSACTION"))
+                                    database.run_sql(sql_statement, ConnectionType.Admin);
+                                else
+                                    database.run_sql(sql_statement, connection_type);
                             }
                             catch (Exception ex)
                             {
