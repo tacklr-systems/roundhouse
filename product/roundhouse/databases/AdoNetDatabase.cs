@@ -214,7 +214,13 @@ namespace roundhouse.databases
                     command.Parameters.Add(parameter.underlying_type);
                 }
             }
-            command.Transaction = transaction;
+
+
+			//Remove transactions
+			var regex = new System.Text.RegularExpressions.Regex(@"(BEGIN\s+TRANSACTION\s+SET.*?GO)|(COMMIT\s+select\s+Has_P.*?Contr_Per )|(BEGIN\s+TRANS(ACTION)*)|(COMMIT)", System.Text.RegularExpressions.RegexOptions.IgnoreCase | System.Text.RegularExpressions.RegexOptions.IgnorePatternWhitespace | System.Text.RegularExpressions.RegexOptions.Multiline);
+			sql_to_run = regex.Replace(sql_to_run, "");
+
+			command.Transaction = transaction;
             command.CommandText = sql_to_run;
             command.CommandType = CommandType.Text;
 
