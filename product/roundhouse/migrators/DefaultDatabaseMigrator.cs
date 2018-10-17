@@ -206,8 +206,8 @@ namespace roundhouse.migrators
                         {
                             try
                             {                                
-                                if (script_name.Contains(".HASTRANSACTION"))
-                                    database.run_sql(sql_statement, ConnectionType.Admin);
+                                if (script_name.Contains(".HASTRANSACTION") && connection_type == ConnectionType.Default)
+                                    database.run_sql(sql_statement, ConnectionType.DefaultHasTransaction);
                                 else
                                     database.run_sql(sql_statement, connection_type);
                             }

@@ -159,6 +159,7 @@
             switch (connection_type)
             {
                 case ConnectionType.Default:
+                case ConnectionType.DefaultHasTransaction:
                     if (server_connection == null || server_connection.underlying_type().State != ConnectionState.Open)
                     {
                         open_connection(false);
@@ -186,7 +187,8 @@
                 }
             }
 
-            if (connection_type != ConnectionType.Admin)
+
+            if (connection_type == ConnectionType.Default)
             {
 				//Remove transactions
 				var regex = new System.Text.RegularExpressions.Regex(@"(BEGIN\s+TRANSACTION\s+SET.*?GO)|(COMMIT\s+select\s+Has_P.*?Contr_Per )|(BEGIN\s+TRANS(ACTION)*)|(COMMIT)", System.Text.RegularExpressions.RegexOptions.IgnoreCase | System.Text.RegularExpressions.RegexOptions.IgnorePatternWhitespace | System.Text.RegularExpressions.RegexOptions.Multiline);
