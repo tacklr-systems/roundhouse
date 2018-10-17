@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "roundhouse.console": {
+      "commandName": "Project",
+      "commandLineArgs": "/warnandignoreononetimescriptchanges /ct=90000000 /cta=90000000 /c=\"server=localhost;uid=sa;pwd=killdavid;database=LexiconSpark1;MultipleActiveResultSets=True;\" /env=\"local\" /f=\"C:\\proj\\Clients\\Spark\\Git\\Spark.Sql\""
+    }
+  }
+}
