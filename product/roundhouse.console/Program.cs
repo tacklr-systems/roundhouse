@@ -74,8 +74,8 @@ namespace roundhouse.console
             finally
             {
 #if DEBUG
-                System.Console.WriteLine("Press any key to continue...");
-                System.Console.ReadKey();
+                //System.Console.WriteLine("Press any key to continue...");
+                //System.Console.ReadKey();
 #endif
                 Environment.Exit(exit_code);
             }
